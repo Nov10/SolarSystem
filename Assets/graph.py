@@ -22,6 +22,6 @@ def plot_values(values):
     plt.show()
 
 if __name__ == "__main__":
-    file_path = 'D:/UnityProjects/SS/SolorSystem (2)/Assets/SValues.txt'
+    file_path = 'D:/Unity/SolarSystem/Assets/SValues.txt'
     values = read_values_from_file(file_path)
     plot_values(values)
