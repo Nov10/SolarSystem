@@ -37,7 +37,7 @@ These concepts are implemented in code as follows:
     public void UpdateVelocity(Body[] bodies, float dt)
     {
         for(int i = 0; i < bodies.Length; i++) { 
-            //생략...
+            //...
             Vector3 acceleration = force / Mass;
             NowVelocity += acceleration * dt;
         }
@@ -89,7 +89,7 @@ With the Sun, eight planets, and the Moon set as ten celestial bodies and given 
 
 https://github.com/Nov10/SolarSystem/assets/91333241/b65dcfd4-fde7-4edc-97ef-48fef9fb8834
 
-이This shows the Earth and the Moon.
+This shows the Earth and the Moon.
 
 You might wonder: **Aren't the eccentricities of planetary orbits considered? What about Kepler's laws?** No, they are not explicitly considered. Rather, they are automatically accounted for.
 If the initial velocities are set correctly to form elliptical orbits, the eccentricity is automatically calculated, and Kepler's laws are naturally implemented as celestial bodies move according to gravitational laws. Thus, simply implementing gravitational forces is sufficient to create a solar system model.
@@ -110,9 +110,13 @@ https://github.com/Nov10/SolarSystem/assets/91333241/814a0af4-5995-41c5-8138-7c2
 Planets orbit elliptically.
 #### Second Law
 The second law states that the area swept out by a line segment joining a planet and the Sun is constant over time. The hatched area represents this concept:
+
 ![](https://github.com/Nov10/SolarSystem/assets/91333241/e40fe88e-3f48-4034-b428-d1a199b9d378)
+
 If we graph this area over time, it appears as follows:
+
 ![](https://github.com/Nov10/SolarSystem/assets/91333241/4dac8658-5cb4-4955-9c2d-28bd3391a900)
+
 The graph shows a constant value.
 Also, Kepler's second law implies that a planet moves faster when it is closer to the Sun and slower when it is farther away. This is also evident from the above video.
 
@@ -129,7 +133,6 @@ We will calculate one of the five Lagrange points (L1) using approximation. For 
 $$\frac{G M_1}{(R - r)^2} - \frac{G M_2}{r^2} = \frac{G (M_1 + M_2)}{R^3} \cdot r$$
 Reorganizing,
 $$\frac{M_1}{(R-r)^2}-\frac{M_2}{r^2}=(\frac{M_1}{M_1+M_2}R-r)\frac{M_1+M_2}{R^3}$$
-입니다.
 If we let $x = \frac{r}{R}$ and $\mu = \frac{M_2}{M_1 + M_2}$, the equation becomes a polynomial in $x$:
 
 $$x^5 + (\mu - 3)x^4 + (3 - 2\mu)x^3 - \mu x^2 + 2\mu x - \mu = 0$$
@@ -185,7 +188,7 @@ Therefore, we need a different approach, which is one of the core aspects of com
 
 Ultimately, we need to solve equations, and we will use Newton's method, a well-known numerical technique, to approximate the solutions. Newton's method can be expressed as:
 $$x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$$
-자Although the details are omitted, Newton's method approximates the root of an equation by assuming the root lies to the right or left of the current point ($x_n$) based on the sign of the tangent slope and function value. Repeating this process sufficiently, $x_n$ becomes the Lagrange point for three or more celestial bodies. This can be implemented as follows, where  ```force / forceDerivative.magnitude``` and ```position -= delta;``` are relevant.
+Although the details are omitted, Newton's method approximates the root of an equation by assuming the root lies to the right or left of the current point ($x_n$) based on the sign of the tangent slope and function value. Repeating this process sufficiently, $x_n$ becomes the Lagrange point for three or more celestial bodies. This can be implemented as follows, where  ```force / forceDerivative.magnitude``` and ```position -= delta;``` are relevant.
 ```C#    
     private Vector3 CalculateLagrangePoint(Body body1, Body body2, Body body3)
     {
@@ -233,7 +236,7 @@ The points keep moving because the solution is unstable as the celestial bodies 
 Finally, we need to discuss the scale of values. Computers are finite calculating machines and can store values only within certain ranges. Therefore, very large numbers are difficult to represent, and we must scale the values to fit within an appropriate range. This repository uses the following scales:
 
 ### Distance (length): Distance is calculated by multiplying astronomical units by 300
-### Mass : Mass is divided by $10^23$
+### Mass : Mass is divided by $10^{23}$
 
 Scaling the values as above brings the mass within a manageable range, but even with such a small scaling factor for distance, the distance from the Sun to Neptune is about 90,000 units. This can cause floating-point errors, visible visually, although it doesn't significantly affect orbit calculations. Therefore, the scale was adjusted to implement the simulation as described above.
 
