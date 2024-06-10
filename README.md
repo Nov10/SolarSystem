@@ -226,11 +226,13 @@ Although the details are omitted, Newton's method approximates the root of an eq
 
 Running this code gives the following results for the Lagrange points among the Sun, Earth, and Moon.
 
+![L3_z_7_3](https://github.com/Nov10/SolarSystem/assets/91333241/e732fe66-9940-4714-87e2-d0d1d07e9650)
+
 https://github.com/Nov10/SolarSystem/assets/91333241/66d1db7d-51b8-47fb-8b32-86dbf7efef0e
 
 https://github.com/Nov10/SolarSystem/assets/91333241/953173be-b2ee-4144-acee-9248c222c6e7
 
-The points keep moving because the solution is unstable as the celestial bodies continue to move. The Lagrange points change with the current positions of the celestial bodies, and the Newton method's initial starting point is always the origin, causing this instability. Although the exact position is uncertain due to the lack of much known about three-body Lagrange points, the results are similar to those for two celestial bodies.
+The points keep moving because the solution is unstable as the celestial bodies continue to move. The Lagrange points change with the current positions of the celestial bodies, and the Newton method's initial starting point is always the center of three celestial bodies, causing this instability. Although the exact position is uncertain due to the lack of much known about three-body Lagrange points, the results are similar to those for two celestial bodies.
 
 # Scale of Values
 Finally, we need to discuss the scale of values. Computers are finite calculating machines and can store values only within certain ranges. Therefore, very large numbers are difficult to represent, and we must scale the values to fit within an appropriate range. This repository uses the following scales:
@@ -466,11 +468,13 @@ $$x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$$
 
 이를 실행하면, 다음과 같은 결과물을 얻을 수 있습니다. 태양, 지구, 달 사이의 라그랑주 포인트를 계산한 것입니다.
 
+![L3_z_7_3](https://github.com/Nov10/SolarSystem/assets/91333241/e732fe66-9940-4714-87e2-d0d1d07e9650)
+
 https://github.com/Nov10/SolarSystem/assets/91333241/66d1db7d-51b8-47fb-8b32-86dbf7efef0e
 
 https://github.com/Nov10/SolarSystem/assets/91333241/953173be-b2ee-4144-acee-9248c222c6e7
 
-지점이 계속 움직이는 형태인데, 이는 천체가 계속 움직여 해가 불안정하게 계산되기 때문입니다. 천체들의 현재 위치에 따라 라그랑주 포인트가 달라지는 것과 더불어, 뉴턴법의 초기 시작점이 무조건 원점이기 때문에 이러한 문제가 발생합니다. 3체에서의 라그랑주 포인트는 아직까지 알려진 바가 많이 없기 때문에 저 지점이 정확한지는 알 수 없으나, 천체 2개의 라그랑주 포인트와 유사하기에 결과는 일부 비슷하다고 생각할 수 있습니다.
+지점이 계속 움직이는 형태인데, 이는 천체가 계속 움직여 해가 불안정하게 계산되기 때문입니다. 천체들의 현재 위치에 따라 라그랑주 포인트가 달라지는 것과 더불어, 뉴턴법의 초기 시작점이 3 천체의 중심점이기 때문에 이러한 문제가 발생합니다. 3체에서의 라그랑주 포인트는 아직까지 알려진 바가 많이 없기 때문에 저 지점이 정확한지는 알 수 없으나, 천체 2개의 라그랑주 포인트와 유사하기에 결과는 일부 비슷하다고 생각할 수 있습니다.
 
 # 값의 스케일
 마지막으로, 값의 범위에 대해 논의해야 합니다. 컴퓨터는 유한한 계산 기계이므로 특정 범위 내의 값들만 유효하게 저장할 수 있습니다. 그렇기에 매우 큰 숫자들은 그 값을 나타내기가 어려우며, 이 값들을 적당한 범위 내에 들어오도록 값의 스케일링을 거쳐야 합니다. 이 리포지토리는 다음과 같은 스케일을 사용하였습니다.
