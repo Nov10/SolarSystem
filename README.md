@@ -26,7 +26,7 @@ Thus, we find the velocity, and by integrating the velocity again, we can find t
 $$x(t)=\int v(t)=\int \frac{1}{2}{t}^2=\frac{1}{6}t^3+C=\frac{1}{6}t^3$$
 This is a straightforward calculation, and there is no issue finding the solution analytically.
 
-However, in computational science, integration is used somewhat differently. Although we still find displacement by integrating, we often cannot represent acceleration or velocity as functions, such as $a(t)=t$. Thus, integration is often used in the context of interpolation. Recall that integration is computed as a sum of certain values; thus, integrating acceleration to compute velocity can be expressed as:
+However, in computational science, integration is used somewhat differently. Although we still find displacement by integrating, we often cannot represent acceleration or velocity as functions, such as $a(t)=t$. Thus, integration is often used in the context of extrapolation. Recall that integration is computed as a sum of certain values; thus, integrating acceleration to compute velocity can be expressed as:
 $$v_{t+1}=v_t+a_t \Delta t$$
 This is a discrete sum, while true analytic integration is continuous, so there is a difference, and errors can occur. Similarly, displacement can be calculated as:
 $$x_{t+1}=x_t+v_t \Delta t$$
@@ -267,7 +267,7 @@ $$v(t)=\int a(t)dt=\int tdt=\frac{1}{2}t^2+C=\frac{1}{2}t^2$$
 이렇게 속도를 구할 수 있으며, 속도를 다시 한번 적분하면 변위를  구할 수 있습니다. 즉,
 $$x(t)=\int v(t)=\int \frac{1}{2}{t}^2=\frac{1}{6}t^3+C=\frac{1}{6}t^3$$
 입니다. 꽤나 간단한 계산이며, 해석학적으로 해를 구하는 데에 문제가 없습니다.
-그러나, 계산과학에서 적분은 조금 다른 방식으로 사용됩니다. 적분을 통해 변위를 구하는 것은 동일하나, 물체의 가속도 또는 속도를 어떠한 함수로 나타낼 수 없기 때문에, 즉 다시 말해 $a(t)=t$라고 표기할 수가 없기 때문에, 적분은 **보간(Interpolation)**의 의미를 가지는 계산으로 사용되는 경우가 많습니다.
+그러나, 계산과학에서 적분은 조금 다른 방식으로 사용됩니다. 적분을 통해 변위를 구하는 것은 동일하나, 물체의 가속도 또는 속도를 어떠한 함수로 나타낼 수 없기 때문에, 즉 다시 말해 $a(t)=t$라고 표기할 수가 없기 때문에, 적분은 **외삽(Extrapolation)**의 의미를 가지는 계산으로 사용되는 경우가 많습니다.
 적분이 어떠한 값들의 합으로 계산됨을 상기하면, 가속도를 적분하여 속도를 계산하는 식은 다음과 같이 나타낼 수 있습니다.
 $$v_{t+1}=v_t+a_t \Delta t$$
 물론 위의 식은 이산합이고, 실제 해석학적 적분은 연속합이기에 둘 사이의 차이가 존재하며, 오차가 발생할 수 있습니다.
